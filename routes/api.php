@@ -22,6 +22,9 @@ Route::middleware('auth:api')->get('/user', function (Request $request) {
 
 Route::get('novels', [NovelsController::class]);
 
+Route::apiResource('novels', NovelsController::class);
+/*
 Route::group(['middleware' => 'auth.basic'], function () {
     Route::apiResource('novels', NovelsController::class);
 });
+*/

@@ -10,7 +10,7 @@
                 </tr>
                 </thead>
                 <tbody>
-                <tr v-for="novel in novels">
+                <tr v-for="novel in novelStore">
                     <td>{{novel.title}}</td>
                     <td>{{novel.author}}</td>
                     <td>{{novel.price}}</td>
@@ -24,9 +24,14 @@
 
     <script>
         export default {
-            name: "Novels",
-            mounted() {
-            },
-            }
+         name: 'Novels',
+           props: {
+            novelStore: {
+               type: Array,
+             }
+           },
+           mounted() { 
+               
+           },
         }
     </script>

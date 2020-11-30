@@ -32,12 +32,13 @@ class NovelsController extends Controller
         try {
             $novel = new Novel;
             $novel->fill($request->validated())->save();
-
-            return new NovelResource($novel);
+            
+            $novelStore = new NovelResource($novel);
 
         } catch(\Exception $exception) {
             throw new HttpException(400, "Invalid data - {$exception->getMessage}");
         }
+        return view('home')->with('novelStore', $novelStore);
     }
 
     /**
